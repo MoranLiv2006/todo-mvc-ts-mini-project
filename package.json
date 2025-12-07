@@ -1,13 +1,14 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "todo-mvc-mini-project-ts",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1",
     "typescript": "^5.5.3"
   },
   "private": true
