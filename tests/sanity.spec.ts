@@ -7,9 +7,11 @@ test.describe("Sanity tests", () => {
     let homePage: HomePage;
 
     test.beforeEach(async ({page}) => {
-        await page.goto(ApplicationURL.HOME_PAGE_URL);
         homePage = new HomePage(page);
+
+        await page.goto(ApplicationURL.HOME_PAGE_URL);
         await homePage.verifyPageUrl(ApplicationURL.HOME_PAGE_URL)
+        await homePage.validatePageTitle("todos")
     })
 
     test("Create 1 todo task", async () => {
