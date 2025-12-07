@@ -14,18 +14,19 @@ export default class HomePage extends BasePage {
         this.listOfTodos = this.page.locator("div[class='view']");
     }
 
+    public async validatePageTitle(expectedTitle: string): Promise<void> {
+        await this.verifyElementText(this.pageTitle, expectedTitle);
+    }
     public async generateNewTask(taskValue: string) {
         await this.fillText(this.newTodoInput, taskValue);
         await this.page.keyboard.press('Enter');
     }
 
-    public async getTheNumberOfTodos() {
-        return await this.getTheNumberOfCounts(this.listOfTodos);
+    public async validateNumberOfTodoTasks(expectedNumberOfTasks: number) {
+        await expect(this.listOfTodos).toHaveCount(expectedNumberOfTasks);
     }
 
-    public async validateNumberOfTodoTasks(expectedNumberOfTasks: number) {
-        await expect(this.listOfTodos).toHaveCount(expectedNumberOfTasks)
-    }
+
 
 
 }
